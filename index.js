@@ -25,8 +25,11 @@ var MODES              = ['multi', 'single'];
 var plugins = {};
 
 // nforce connection object
+var Connection = function(){
 
-var Connection = function(opts) {
+}
+
+Connection.prototype.use = function(opts) {
   var self = this;
 
   opts = _.defaults(opts || {}, {
@@ -904,3 +907,4 @@ module.exports.createSObject = function(type, fields) {
 
 module.exports.Record = Record;
 module.exports.version = require('./package.json').version;
+module.exports = new Connection();
